@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class County {
 
     @Id
-    @Column(name="countrycode")
+    @Column(name="countycode")
     private String countyCode;
     private String name;
     private String href;
