@@ -47,7 +47,19 @@ public class CountyRESTController {
         return countyRepository.save(county);
     }
 
-    
+
+    @PutMapping("/county/{id}")
+    public ResponseEntity<County> updateCount(@PathVariable String id, @RequestBody County county) {
+        Optional<County> optCounty = countyRepository.findById(id);
+        if (optCounty.isPresent()) {
+            countyRepository.save(county);
+            return new ResponseEntity<County>(county,HttpStatus.OK);
+        } else {
+            County notfoundCounty = new County();
+            notfoundCounty.setName("Jeg kunne ikke finde id=" + id);
+            return new ResponseEntity<County>(notfoundCounty, HttpStatus.NOT_FOUND);
+        }
+    }
 
 
 }
