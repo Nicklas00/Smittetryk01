@@ -65,7 +65,7 @@ public class CountyRESTController {
     public ResponseEntity<String> deleteCounty(@PathVariable String id) {
         try {
             countyRepository.deleteById(id);
-            return new ResponseEntity<>("Slettet id=" + id, HttpStatus.OK)
+            return new ResponseEntity<>("Slettet id=" + id, HttpStatus.OK);
         } catch (Exception err){
             return new ResponseEntity<>("Jeg kunnne ikke slet id=" + id, HttpStatus.NOT_FOUND);
         }
